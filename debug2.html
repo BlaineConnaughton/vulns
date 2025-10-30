@@ -1,0 +1,657 @@
+<!DOCTYPE html><html lang="en" class=""><head>
+
+
+
+<title>NVD - Search and Statistics</title>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-style-type" content="text/css">
+<meta http-equiv="content-script-type" content="text/javascript">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link href="/site-scripts/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+<link href="/site-scripts/@fortawesome/fontawesome-free/css/all.min.css" type="text/css" rel="stylesheet">
+<link href="/site-media/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="/site-media/bootstrap/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
+<link href="/site-scripts/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" type="text/css" rel="stylesheet">
+
+
+<link href="/site-media/css/nist-fonts.css" type="text/css" rel="stylesheet">
+<link href="/site-media/css/base-style.css" type="text/css" rel="stylesheet">
+<link href="/site-media/css/media-resize.css" type="text/css" rel="stylesheet">
+
+
+<meta name="theme-color" content="#000000">
+
+
+<script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script src="/site-scripts/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<script src="/site-scripts/jquery-visible/jquery.visible.min.js" type="text/javascript"></script>
+<script src="/site-scripts/underscore/underscore-min.js" type="text/javascript"></script>
+<script src="/site-media/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+<script src="/site-scripts/moment/min/moment.min.js" type="text/javascript"></script>
+<script src="/site-scripts/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+
+
+<script src="/site-media/js/megamenu.js" type="text/javascript"></script>
+<script src="/site-media/js/nist-exit-script.js" type="text/javascript"></script>
+<script src="/site-media/js/forms.js" type="text/javascript"></script>
+
+<script src="/site-media/js/federated-analytics.all.min.js?agency=NIST&amp;subagency=nvd&amp;pua=UA-37115410-41&amp;yt=true" type="text/javascript" id="_fed_an_js_tag"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4KKFZP12LQ"></script>
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-4KKFZP12LQ'); </script>
+
+
+
+<noscript>
+	<style id="antiClickjackNoScript">
+body>* {
+	display: block !important;
+}
+
+#antiClickjack {
+	display: none !important;
+}
+</style>
+</noscript>
+<script type="text/javascript" id="antiClickjackScript">
+	if (self === top) {
+		// no clickjacking
+		var antiClickjack = document.getElementById("antiClickjack");
+		antiClickjack.parentNode.removeChild(antiClickjack);
+	} else {
+		setTimeout(tryForward(), 5000);
+	}
+
+	function tryForward() {
+		top.location = self.location;
+	}
+</script>
+<meta charset="UTF-8">
+
+<link href="/site-media/css/nvd-style.css" type="text/css" rel="stylesheet">
+<link href="/site-media/images/favicons/apple-touch-icon.png" rel="apple-touch-icon" type="image/png" sizes="180x180">
+<link href="/site-media/images/favicons/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
+<link href="/site-media/images/favicons/favicon-16x16.png" rel="icon" type="image/png" sizes="16x16">
+<link href="/site-media/images/favicons/manifest.json" rel="manifest">
+<link href="/site-media/images/favicons/safari-pinned-tab.svg" rel="mask-icon" color="#000000">
+<link href="/site-media/images/favicons/favicon.ico" rel="shortcut icon">
+<meta name="msapplication-config" content="/site-media/images/favicons/browserconfig.xml">
+<link href="/site-media/images/favicons/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="/site-media/images/favicons/favicon.ico" rel="icon" type="image/x-icon">
+<meta charset="UTF-8">
+<link href="/site-media/js/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.0.custom.css" type="text/css" rel="stylesheet">
+<script src="/site-scripts/jquery-ui-dist/jquery-ui.js" type="text/javascript"></script>
+
+<style type="text/css"></style><style>.p-button[_ngcontent-wxb-c70]{margin:0;display:inline-flex;cursor:pointer;-webkit-user-select:none;user-select:none;align-items:center;vertical-align:bottom;text-align:center;overflow:hidden;position:relative}.p-button-label[_ngcontent-wxb-c70]{flex:1 1 auto}.p-button-icon-right[_ngcontent-wxb-c70]{order:1}.p-button[_ngcontent-wxb-c70]:disabled{cursor:default}.p-button-icon-only[_ngcontent-wxb-c70]{justify-content:center}.p-button-icon-only[_ngcontent-wxb-c70]:after{content:"p";visibility:hidden;clip:rect(0 0 0 0);width:0}.p-button-vertical[_ngcontent-wxb-c70]{flex-direction:column}.p-button-icon-bottom[_ngcontent-wxb-c70]{order:2}.p-buttonset[_ngcontent-wxb-c70]   .p-button[_ngcontent-wxb-c70]{margin:0}.p-buttonset[_ngcontent-wxb-c70]   .p-button[_ngcontent-wxb-c70]:not(:last-child){border-right:0 none}.p-buttonset[_ngcontent-wxb-c70]   .p-button[_ngcontent-wxb-c70]:not(:first-of-type):not(:last-of-type){border-radius:0}.p-buttonset[_ngcontent-wxb-c70]   .p-button[_ngcontent-wxb-c70]:first-of-type{border-top-right-radius:0;border-bottom-right-radius:0}.p-buttonset[_ngcontent-wxb-c70]   .p-button[_ngcontent-wxb-c70]:last-of-type{border-top-left-radius:0;border-bottom-left-radius:0}.p-buttonset[_ngcontent-wxb-c70]   .p-button[_ngcontent-wxb-c70]:focus{position:relative;z-index:1}</style></head>
+<body>
+	<header role="banner" title="Site Banner">
+		<div id="antiClickjack" style="display: none">
+			<h1>You are viewing this page in an unauthorized frame window.</h1>
+			<p>
+		This is a potential security issue, you are being redirected to 
+		<a href="https://nvd.nist.gov">https://nvd.nist.gov</a>
+	</p>
+		</div>
+		<div>
+		</div>
+		<div>
+		<section class="usa-banner" aria-label="Official government website">
+		    <div class="usa-accordion container">
+		        <header class="usa-banner__header">
+		            <noscript>
+		                <p style="font-size: 0.85rem; font-weight: bold;">You have JavaScript disabled. This site requires JavaScript to be enabled for complete site functionality.</p>
+		            </noscript>
+		            <img class="usa-banner__header-flag" src="/site-media/images/usbanner/us_flag_small.png" alt="U.S. flag">
+		            &nbsp;
+		            <span class="usa-banner__header-text">An official website of the United States government</span>
+		
+		            <button id="gov-banner-button" class="usa-accordion__button usa-banner__button" data-toggle="collapse" data-target="#gov-banner" aria-expanded="false" aria-controls="gov-banner">
+		                <span class="usa-banner__button-text">Here's how you know</span>
+		            </button>
+		        </header>
+		        <div class="usa-banner__content usa-accordion__content collapse" role="tabpanel" id="gov-banner" aria-expanded="true" hidden="">
+		            <div class="row">
+		                <div class="col-md-5 col-sm-12">
+		                    <div class="row">
+		                        <div class="col-sm-2 col-xs-3">
+		                            <img class="usa-banner__icon usa-media-block__img" src="/site-media/images/usbanner/icon-dot-gov.svg" alt="Dot gov">
+		                        </div>
+		                        <div class="col-sm-10 col-xs-9">
+		                            <p>
+		                                <strong>Official websites use .gov</strong>
+		                                <br>
+		                                A <strong>.gov</strong> website belongs to an official government organization in the United States.
+		                            </p>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="col-md-5 col-sm-12">
+		                    <div class="row">
+		                        <div class="col-sm-2 col-xs-3">
+		                            <img class="usa-banner__icon usa-media-block__img" src="/site-media/images/usbanner/icon-https.svg" alt="Https">
+		                        </div>
+		                        <div class="col-sm-10 col-xs-9">
+		                        <p>
+		                            <strong>Secure .gov websites use HTTPS</strong>
+		                            <br>
+		                            A <strong>lock</strong> (<img class="usa-banner__lock" src="/site-media/images/usbanner/lock.svg" alt="Dot gov">) or <strong>https://</strong> means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.
+		                        </p>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</section>
+	</div>
+		<div>
+		<div>
+	<nav id="navbar" class="navbar">
+		<div id="nist-menu-container" class="container">
+			<div class="row">
+				<!-- Brand -->
+				<div class="col-xs-6 col-md-4 navbar-header" style="height:104px">
+					<a class="navbar-brand" href="https://www.nist.gov" target="_blank" rel="noopener noreferrer" id="navbar-brand-image" style="padding-top: 36px">
+
+						<img alt="National Institute of Standards and Technology" src="/site-media/images/nist/nist-logo.svg" width="110" height="30">
+					</a>
+				</div>
+				<div class="col-xs-6 col-md-8 navbar-nist-logo">
+					<span id="nvd-menu-button" class="pull-right" style="margin-top: 26px"> <a>
+							<span class="fa fa-bars"></span> <span id="nvd-menu-full-text"><span class="hidden-xxs">NVD </span>MENU</span>
+					</a>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="main-menu-row container">
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div id="main-menu-drop" class="col-lg-12" style="display: none;">
+				<ul>
+
+					<li><a href="/general"> General <span class="expander fa fa-plus" id="nvd-header-menu-general" data-expander-name="general" data-expanded="false"> <span class="element-invisible">Expand or Collapse</span>
+						</span>
+					</a>
+						<div style="display: none;" class="sub-menu" data-expander-trigger="general">
+							<div class="row">
+								<div class="col-lg-4">
+									<p>
+										<a href="/general/nvd-dashboard">NVD Dashboard</a>
+									</p>
+									<p>
+										<a href="https://www.nist.gov/itl/nvd">News and Status Updates</a>
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/general/faq">FAQ</a>
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/general/visualizations">Visualizations</a> 
+									</p>
+									<p>
+										<a href="/general/legal-disclaimer">Legal Disclaimer</a> 
+									</p>
+								</div>
+							</div>
+						</div></li>
+					<li><a href="/vuln" class="is-active-trail"> Vulnerabilities <span class="expander fa fa-minus" id="nvd-header-menu-vulnerabilities" data-expander-name="vulnerabilities" data-expanded="true">
+								<span class="element-invisible">Expand or Collapse</span>
+						</span>
+					</a>
+						<div style="" class="sub-menu" data-expander-trigger="vulnerabilities">
+							<div class="row">
+								<div class="col-lg-4">
+									<p>
+										<a href="/vuln/search" class="is-active-trail csrc-active-link">Search &amp; Statistics</a>
+									</p>
+									<p>
+										<a href="/vuln/categories">Weakness Types</a>
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/vuln/data-feeds">Data Feeds</a>
+									</p>
+									<p>
+										<a href="/vuln/vendor-comments">Vendor Comments</a>
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/vuln/cvmap">CVMAP</a>
+									</p>
+								</div>
+							</div>
+						</div></li>
+					<li><a href="/vuln-metrics/cvss#"> Vulnerability Metrics <span class="expander fa fa-plus" id="nvd-header-menu-metrics" data-expander-name="metrics" data-expanded="false"> <span class="element-invisible">Expand or Collapse</span>
+						</span>
+					</a>
+						<div style="display: none;" class="sub-menu" data-expander-trigger="metrics">
+							<div class="row">
+								<div class="col-lg-4">
+									<p>
+										<a href="/vuln-metrics/cvss/v4-calculator">CVSS v4.0
+											Calculators</a>
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/vuln-metrics/cvss/v3-calculator">CVSS v3.x
+											Calculators</a>
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/vuln-metrics/cvss/v2-calculator">CVSS v2.0
+											Calculator</a>
+									</p>
+
+								</div>
+							</div>
+						</div></li>
+					<li><a href="/products"> Products <span class="expander fa fa-plus" id="nvd-header-menu-products" data-expander-name="products" data-expanded="false"> <span class="element-invisible">Expand or Collapse</span>
+						</span>
+					</a>
+						<div style="display: none;" class="sub-menu" data-expander-trigger="products">
+							<div class="row">
+								<div class="col-lg-4">
+									<p>
+										<a href="/products/cpe">CPE Dictionary</a>
+									</p>
+									<p>
+										<a href="/products/cpe/search">CPE Search</a>
+									</p>
+
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/products/cpe/statistics">CPE Statistics</a>
+									</p>
+									<p>
+										<a href="/products/swid">SWID</a>
+									</p>
+
+								</div>
+								<div class="col-lg-4"></div>
+							</div>
+						</div></li>
+					<li>
+						<a href="/developers">Developers<span class="expander fa fa-plus" id="nvd-header-menu-developers" data-expander-name="developers" data-expanded="false"> <span class="element-invisible">Expand or Collapse</span>
+							</span>
+						</a>
+						<div style="display: none;" class="sub-menu" data-expander-trigger="developers">
+							<div class="row">
+								<div class="col-lg-4">
+									<p>
+										<a href="/developers/start-here">Start Here</a>
+									</p>
+									<p>
+										<a href="/developers/request-an-api-key">Request an API Key</a>
+									</p>
+
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/developers/vulnerabilities">Vulnerabilities</a>
+									</p>
+									<p>
+										<a href="/developers/products">Products</a>
+									</p>
+
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/developers/data-sources">Data Sources</a>
+									</p>
+									<p>
+										<a href="/developers/terms-of-use">Terms of Use</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li><a href="/contact"> Contact NVD </a></li>
+					<li><a href="/other"> Other Sites <span class="expander fa fa-plus" id="nvd-header-menu-othersites" data-expander-name="otherSites" data-expanded="false"> <span class="element-invisible">Expand or Collapse</span>
+						</span>
+					</a>
+						<div style="display: none;" class="sub-menu" data-expander-trigger="otherSites">
+							<div class="row">
+								<div class="col-lg-4">
+									<p>
+										<a href="https://ncp.nist.gov">Checklist (NCP) Repository</a>
+									</p>
+									<p>
+										<a href="https://ncp.nist.gov/cce">Configurations (CCE)</a>
+									</p>
+									<p>
+										<a href="https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search">800-53 Controls</a>
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="https://csrc.nist.gov/projects/scap-validation-program">SCAP
+											Validated Tools</a>
+									</p>
+									<p>
+										<a href="https://csrc.nist.gov/projects/security-content-automation-protocol">SCAP</a>
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="https://csrc.nist.gov/projects/united-states-government-configuration-baseline">USGCB</a>
+									</p>
+								</div>
+							</div>
+						</div></li>
+
+					<li><a href="/search" class="is-active-trail"> Search <span class="expander fa fa-plus" id="nvd-header-menu-search" data-expander-name="search" data-expanded="false"> <span class="element-invisible">Expand or Collapse</span>
+						</span>
+					</a>
+						<div style="display: none;" class="sub-menu" data-expander-trigger="search">
+							<div class="row">
+								<div class="col-lg-4">
+									<p>
+										<a href="/vuln/search" class="is-active-trail csrc-active-link">Vulnerability Search</a>
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<p>
+										<a href="/products/cpe/search">CPE Search</a>
+									</p>
+								</div>
+							</div>
+						</div></li>
+
+
+
+
+				</ul>
+			</div>
+			<!-- /#mobile-nav-container -->
+		</div>
+
+	</nav>
+	<section id="itl-header" class="has-menu">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-8">
+					<h2 class="hidden-xs hidden-sm">
+						<a href="https://www.nist.gov/itl" target="_blank" rel="noopener noreferrer">Information Technology Laboratory</a>
+					</h2>
+			 		<h1 class="hidden-xs hidden-sm">
+						<a id="nvd-header-link" href="/">National Vulnerability Database</a>
+					</h1>
+					<h1 class="hidden-xs text-center hidden-md hidden-lg">National Vulnerability Database</h1>
+					<h1 class="hidden-sm hidden-md hidden-lg text-center">NVD</h1>
+				
+				</div>
+				<div class="col-sm-12 col-md-4">
+					<a style="width: 100%; text-align: center; display: block;padding-top: 14px">
+						<img id="img-logo-nvd-lg" alt="National Vulnerability Database" src="/site-media/images/F_NIST-Logo-NVD-white.svg" width="500" height="100">
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+		
+</div>
+	</div>
+	</header>
+	<main>
+		<div>
+		<div id="body-section" class="container">
+			<div class="row">
+				<ol class="breadcrumb">
+					<li><a href="/vuln" class="CMSBreadCrumbsLink">Vulnerabilities</a></li>
+				</ol>
+			</div>
+			<div style="margin-top: 0rem !important;">
+            <app-root-nvd-public ng-version="15.2.10"><router-outlet></router-outlet><nvd-home><cve-search><cve-search-validation><div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><!--bindings={
+  "ng-reflect-ng-if": ""
+}--></cve-search-validation><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><cve-header ng-reflect-config="[object Object]" ng-reflect-metadata="[object Object]"><header class="usa-header usa-header--basic"><div class="usa-navbar" style="width: 100%;"><div class="usa-logo"><em class="usa-logo__text"><h3 title="NVD Vulnerability Search">NVD Vulnerability Search</h3></em></div></div></header></cve-header><cve-search-box ng-reflect-config="[object Object]" ng-reflect-metadata="[object Object]" ng-reflect-show-advanced="false"><div><form novalidate="" class="ng-untouched ng-pristine ng-valid"><div class="grid-row display-flex flex-align-center grid-gap"><div class="tablet:grid-col-7 flex-align-center mb-2"><section aria-label="Search component"><form novalidate="" role="search" class="usa-search nvd-keyword ng-untouched ng-pristine ng-valid"><label for="search-field" class="usa-sr-only">Search</label><input id="search-field" type="text" name="keyword" aria-label="keyword-filter" class="usa-input ng-untouched ng-pristine ng-valid" ng-reflect-name="keyword"><button type="submit" class="usa-button"><span class="element-invisible">Search</span><i class="fa fa-search"></i></button></form></section></div><div class="tablet:grid-col-2 flex-align-center mb-2"><button class="usa-button" style="width: 100%!important;"><i class="fa fa-cogs"></i> Advanced </button></div><div class="tablet:grid-col-1 flex-align-center mb-2"><button class="usa-button usa-button--outline"> Reset </button></div><div class="tablet:grid-col-2 flex-align-center mb-2"><p-togglebutton onlabel="Show Records" offlabel="Show Statistics" onicon="fa fa-file-o" officon="fa fa-bar-chart" styleclass="usa-button usa-button--outline" class="p-element ng-untouched ng-pristine ng-valid" _nghost-wxb-c70="" ng-reflect-on-label="Show Records" ng-reflect-off-label="Show Statistics" ng-reflect-on-icon="fa fa-file-o" ng-reflect-off-icon="fa fa-bar-chart" ng-reflect-style-class="usa-button usa-button--outline" ng-reflect-model="false" ng-reflect-options="[object Object]"><div _ngcontent-wxb-c70="" role="checkbox" pripple="" class="p-ripple p-element usa-button usa-button--outline p-button p-togglebutton p-component" ng-reflect-ng-class="[object Object]" tabindex="0" aria-checked="false"><span _ngcontent-wxb-c70="" ng-reflect-ng-class="[object Object]" class="fa fa-bar-chart p-button-icon p-button-icon-left"></span><!--bindings={
+  "ng-reflect-ng-if": "fa fa-file-o"
+}--><span _ngcontent-wxb-c70="" class="p-button-label">Show Statistics</span><!--bindings={
+  "ng-reflect-ng-if": "Show Records"
+}--></div></p-togglebutton></div></div><div class="grid-row display-flex flex-align-center grid-gap"><div class="tablet:grid-col-7 flex-align-center mb-2"><em><b>For a phrase search, use " "</b></em></div></div></form></div></cve-search-box><cve-active-filters ng-reflect-config="[object Object]" ng-reflect-results="[object Object]"><!--bindings={
+  "ng-reflect-ng-for-of": ""
+}--></cve-active-filters><cve-results ng-reflect-config="[object Object]" ng-reflect-metadata="[object Object]" ng-reflect-show-advanced="false" ng-reflect-results="[object Object]"><!--bindings={
+  "ng-reflect-ng-switch-case": "statistics"
+}--><cve-results-table ng-reflect-config="[object Object]" ng-reflect-results="[object Object]"><div class="results-table"><div class="grid-row"><div class="tablet:grid-col-12 display-flex flex-align-center flex-justify-end"><uswds-pagination ng-reflect-id="topPagination" ng-reflect-show-page-number="false" ng-reflect-current-page="1" ng-reflect-total-pages="12651" ng-reflect-items-per-page="25" ng-reflect-items-per-page-options="[object Object],[object Object" ng-reflect-page-range-info="1–25 of 316256"><nav aria-label="Pagination" class="usa-pagination padding-y-1"><div class="display-flex flex-align-center flex-justify-between flex-wrap gap-2"><label class="margin-right-1" for="perPage-topPagination">Items per page:</label><div class="display-flex flex-align-center"><select class="usa-select ng-untouched ng-pristine ng-valid" style="min-width: 6rem;" id="perPage-topPagination" ng-reflect-model="25"><option value="0: 25" ng-reflect-ng-value="25">25</option><option value="1: 50" ng-reflect-ng-value="50">50</option><option value="2: 100" ng-reflect-ng-value="100">100</option><option value="3: 200" ng-reflect-ng-value="200">200</option><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></select></div><span class="text-middle">1–25 of 316256</span></div><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "4"
+}--><ul class="usa-pagination__list flex-wrap"><li class="usa-pagination__item"><button aria-label="First page" title="First page" class="usa-button--unstyled" disabled=""><span class="usa-pagination__link-text"><i aria-hidden="true" class="fa fa-step-backward"></i></span></button></li><li class="usa-pagination__item"><button aria-label="Previous page" title="Previous page" class="usa-button--unstyled" disabled=""><span class="usa-pagination__link-text"><i aria-hidden="true" class="fa fa-chevron-left"></i></span></button></li><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><li class="usa-pagination__item"><button aria-label="Next page" title="Next page" class="usa-button--unstyled"><span class="usa-pagination__link-text"><i aria-hidden="true" class="fa fa-chevron-right"></i></span></button></li><li class="usa-pagination__item"><button aria-label="Last page" title="Last page" class="usa-button--unstyled"><span class="usa-pagination__link-text"><i aria-hidden="true" class="fa fa-step-forward"></i></span></button></li></ul></nav></uswds-pagination></div></div><!--bindings={
+  "ng-reflect-ng-if": "316256"
+}--><table class="usa-table usa-table--borderless" style="width: 100%;"><thead><tr><th scope="col" style="cursor: pointer;"> Identifier <!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></th><th scope="col" style="cursor: pointer;"> CISA Kev Info <!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></th><th scope="col" style="cursor: pointer;"> Published Date <!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></th><th scope="col" style="cursor: pointer;"> CNA <!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></th><th scope="col" style="cursor: pointer;"> Description <!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></th></tr></thead><tbody><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9999">CVE-2025-9999</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9999 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-05</td><td>arcinfo</td><td>Some payload elements of the messages sent between two stations in a networking architecture are not properly checked on the receiving station allowing an attacker to execute unauthorized commands in the application.</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9998">CVE-2025-9998</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9998 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-05</td><td>arcinfo</td><td>The sequence of packets received by a Networking server are not correctly checked.
+
+An attacker could exploit this vulnerability to send specially crafted messages to force the application to stop.</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9997">CVE-2025-9997</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9997 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-09</td><td>Schneider Electric SE</td><td>CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability exists that could cause command injection in BLMon that is executed in the operating system console when in a SSH session.</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9996">CVE-2025-9996</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9996 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-09</td><td>Schneider Electric SE</td><td>CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability exists that could cause the execution of any shell command when executing a netstat command using BLMon Console in an SSH session.</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9994">CVE-2025-9994</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9994 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-09</td><td>CERT/CC</td><td>The Amp’ed RF BT-AP 111 Bluetooth access point's HTTP admin interface does not have an authentication feature, allowing unauthorized access to anyone with network access.</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9993">CVE-2025-9993</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9993 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-30</td><td>Wordfence</td><td>The Bei Fen – WordPress Backup Plugin plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 1.4.2 via the 'task'. This makes it possible for authenticated attackers, with Subscriber-level access and above, to include and execute arbitrary .php files on the ...</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9992">CVE-2025-9992</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9992 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-18</td><td>Wordfence</td><td>The Ghost Kit – Page Builder Blocks, Motion Effects &amp; Extensions plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the custom JS field in all versions up to, and including, 3.4.3 due to insufficient input sanitization and output escaping. This makes it possible for authenticated ...</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9991">CVE-2025-9991</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9991 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-30</td><td>Wordfence</td><td>The Tiny Bootstrap Elements Light plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 4.3.34 via the 'language' parameter. This makes it possible for unauthenticated attackers to include and execute arbitrary .php files on the server, allowing the executi...</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9990">CVE-2025-9990</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9990 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-05</td><td>Wordfence</td><td>The WordPress Helpdesk Integration plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 5.8.10 via the portal_type parameter. This makes it possible for unauthenticated attackers to include and execute arbitrary .php files on the server, allowing the execu...</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9985">CVE-2025-9985</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9985 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-26</td><td>Wordfence</td><td>The Featured Image from URL (FIFU) plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 5.2.7 through publicly exposed log files. This makes it possible for unauthenticated attackers to view potentially sensitive information contained in the expo...</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9984">CVE-2025-9984</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9984 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-26</td><td>Wordfence</td><td>The Featured Image from URL (FIFU) plugin for WordPress is vulnerable to unauthorized access of data due to a missing capability check on the fifu_api_debug_posts() function in all versions up to, and including, 5.2.7. This makes it possible for unauthenticated attackers to read private/password pro...</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9983">CVE-2025-9983</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9983 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-22</td><td>CERT.PL</td><td>GALAYOU G2 cameras stream video output via RTSP streams. By default these streams are protected by randomly generated credentials. However these credentials are not required to access the stream. Changing these values does not change camera's behavior.
+
+The vendor did not respond in any way. Only ve...</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9981">CVE-2025-9981</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9981 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-10-23</td><td>CERT.PL</td><td>QuickCMS is vulnerable to multiple Stored XSS in slider editor functionality (sliders-form). Malicious attacker with admin privileges can inject arbitrary HTML and JS into website, which will be rendered/executed on every page. By default admin user is not able to add JavaScript into the website.
+
+T...</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9980">CVE-2025-9980</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9980 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-10-23</td><td>CERT.PL</td><td>QuickCMS is vulnerable to multiple Stored XSS in page editor functionality (pages-form). Malicious attacker with admin privileges can inject arbitrary HTML and JS into website, which will be rendered/executed when visiting edited page. By default admin user is not able to add JavaScript into the web...</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9979">CVE-2025-9979</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9979 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-10</td><td>Wordfence</td><td>The Maspik plugin for WordPress is vulnerable to Missing Authorization in version 2.5.6 and prior. This is due to missing capability checks on the Maspik_spamlog_download_csv function. This makes it possible for authenticated attackers, with subscriber-level access and above, to export and download ...</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9978">CVE-2025-9978</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9978 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-10-24</td><td>WPScan</td><td>The Jeg Kit for Elementor  WordPress plugin before 2.7.0 does not sanitize SVG file contents when uploaded via xmlrpc.php, leading to a cross site scripting vulnerability.</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9976">CVE-2025-9976</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9976 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-10-13</td><td>Dassault Systèmes</td><td>An OS Command Injection vulnerability affecting Station Launcher App in 3DEXPERIENCE platform from Release 3DEXPERIENCE R2022x through Release 3DEXPERIENCE R2025x could allow an attacker to execute arbitrary code on the user's machine.</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9975">CVE-2025-9975</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9975 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-10-11</td><td>Wordfence</td><td>The WP Scraper plugin for WordPress is vulnerable to Server-Side Request Forgery in all versions up to, and including, 5.8.1 via the wp_scraper_extract_content function. This makes it possible for authenticated attackers, with Administrator-level access and above, to make web requests to arbitrary l...</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9972">CVE-2025-9972</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9972 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-17</td><td>TWCERT/CC</td><td>Certain models of Industrial Cellular Gateway developed by Planet Technology have an OS Command Injection vulnerability, allowing unauthenticated remote attackers to inject arbitrary OS commands and execute them on the device.</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9971">CVE-2025-9971</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9971 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-17</td><td>TWCERT/CC</td><td>Certain models of Industrial Cellular Gateway developed by Planet Technology have a Missing Authentication vulnerability, allowing unauthenticated remote attackers to manipulate the device via a specific functionality.</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9970">CVE-2025-9970</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9970 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-10-08</td><td>Asea Brown Boveri Ltd. (ABB)</td><td>Cleartext Storage of Sensitive Information in Memory vulnerability in ABB MConfig.This issue affects MConfig: through 1.4.9.21.</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9969">CVE-2025-9969</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9969 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-19</td><td>Computer Emergency Response Team of the Republic of Turkey</td><td>Improper Neutralization of Input During Web Page Generation (XSS or 'Cross-site Scripting') vulnerability in Vizly Web Design Real Estate Packages allows Content Spoofing, CAPEC - 593 - Session Hijacking, CAPEC - 591 - Reflected XSS.This issue affects Real Estate Packages: before 5.1.</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9968">CVE-2025-9968</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9968 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-10-13</td><td>ASUS</td><td>A link following vulnerability exists in the UnifyScanner component of Armoury Crate. This vulnerability may be triggered by creating a specially crafted junction, potentially leading to local privilege escalation.
+For more information, please refer to section 'Security Update for Armoury Crate App'...</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9967">CVE-2025-9967</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9967 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-10-15</td><td>Wordfence</td><td>The Orion SMS OTP Verification plugin for WordPress is vulnerable to privilege escalation via account takeover in all versions up to, and including, 1.1.7. This is due to the plugin not properly validating a user's identity prior to updating their password. This makes it possible for unauthenticated...</td></tr><tr><td><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-9966">CVE-2025-9966</a></td><td><!--bindings={}--><span class="fa fa-times-circle" style="color: red;" title="CVE-2025-9966 does not contain data from CISA Kev"></span><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></td><td>2025-09-23</td><td>CyberDanube</td><td>Improper privilege management vulnerability in Novakon P series allows attackers to gain root privileges if one service is compromized.This issue affects P series: P – V2001.A.C518o2.</td></tr><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></tbody></table><!--bindings={
+  "ng-reflect-ng-if": "25"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><div class="grid-row"><div class="tablet:grid-col-12 display-flex flex-justify-center margin-top-2 flex-justify-end"><uswds-pagination ng-reflect-id="bottomPagination" ng-reflect-show-page-number="false" ng-reflect-current-page="1" ng-reflect-total-pages="12651" ng-reflect-items-per-page="25" ng-reflect-items-per-page-options="[object Object],[object Object" ng-reflect-page-range-info="1–25 of 316256"><nav aria-label="Pagination" class="usa-pagination padding-y-1"><div class="display-flex flex-align-center flex-justify-between flex-wrap gap-2"><label class="margin-right-1" for="perPage-bottomPagination">Items per page:</label><div class="display-flex flex-align-center"><select class="usa-select ng-untouched ng-pristine ng-valid" style="min-width: 6rem;" id="perPage-bottomPagination" ng-reflect-model="25"><option value="0: 25" ng-reflect-ng-value="25">25</option><option value="1: 50" ng-reflect-ng-value="50">50</option><option value="2: 100" ng-reflect-ng-value="100">100</option><option value="3: 200" ng-reflect-ng-value="200">200</option><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--></select></div><span class="text-middle">1–25 of 316256</span></div><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "4"
+}--><ul class="usa-pagination__list flex-wrap"><li class="usa-pagination__item"><button aria-label="First page" title="First page" class="usa-button--unstyled" disabled=""><span class="usa-pagination__link-text"><i aria-hidden="true" class="fa fa-step-backward"></i></span></button></li><li class="usa-pagination__item"><button aria-label="Previous page" title="Previous page" class="usa-button--unstyled" disabled=""><span class="usa-pagination__link-text"><i aria-hidden="true" class="fa fa-chevron-left"></i></span></button></li><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><li class="usa-pagination__item"><button aria-label="Next page" title="Next page" class="usa-button--unstyled"><span class="usa-pagination__link-text"><i aria-hidden="true" class="fa fa-chevron-right"></i></span></button></li><li class="usa-pagination__item"><button aria-label="Last page" title="Last page" class="usa-button--unstyled"><span class="usa-pagination__link-text"><i aria-hidden="true" class="fa fa-step-forward"></i></span></button></li></ul></nav></uswds-pagination></div></div><!--bindings={
+  "ng-reflect-ng-if": "316256"
+}--></div><!--bindings={
+  "ng-reflect-ng-if": "[object Object]"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></cve-results-table><!--container--><!--ng-container--></cve-results><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "[object Object]"
+}--></cve-search></nvd-home><!--container--></app-root-nvd-public>
+
+            
+                <script src="/public/consoles/bundles/uswds/uswds/dist/js/uswds-init.min.js" type="text/javascript"></script>
+            
+                <script src="/public/consoles/bundles/uswds/uswds/dist/js/uswds.min.js" type="text/javascript"></script>
+            
+                <script src="/public/consoles/bundles/nvdpublic-bundle.js" type="text/javascript"></script>
+            
+
+            
+                <link href="/public/consoles/node_modules/@angular/material/prebuilt-themes/indigo-pink.css" rel="stylesheet" type="text/css">
+            
+                <link href="/public/consoles/bundles/material-icons/iconfont/material-icons.css" rel="stylesheet" type="text/css">
+            
+                <link href="/public/consoles/bundles/primeng/resources/themes/bootstrap4-light-blue/theme.css" rel="stylesheet" type="text/css">
+            
+                <link href="/public/consoles/bundles/primeng/resources/primeng.min.css" rel="stylesheet" type="text/css">
+            
+                <link href="/public/consoles/bundles/primeicons/primeicons.css" rel="stylesheet" type="text/css">
+            
+                <link href="/public/consoles/bundles/uswds/uswds/dist/css/uswds.min.css" rel="stylesheet" type="text/css">
+            
+                <link href="/public/consoles/css/tabs.css" rel="stylesheet" type="text/css">
+            
+                <link href="/public/consoles/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+            
+                <link href="/public/consoles/css/body-overlay.css" rel="stylesheet" type="text/css">
+            
+                <link href="/public/consoles/bundles/nvdpublic.css" rel="stylesheet" type="text/css">
+            
+        </div>
+		</div>
+	</div>
+	</main>
+	<footer id="footer" role="contentinfo">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-12">
+					<ul class="social-list pull-right">
+						<li class="field-item service-twitter list-horiz"><a href="https://x.com/NISTCyber" target="_blank" rel="noopener noreferrer" class="social-btn social-btn--large extlink ext external"> <i class="fa-brands fa-x-twitter fa-fw"><span class="element-invisible">X</span></i><span class="ext"><span class="element-invisible"> (link
+										is external)</span></span>
+						</a></li>
+						<li class="field-item service-facebook list-horiz"><a href="https://www.facebook.com/NIST" target="_blank" rel="noopener noreferrer" class="social-btn social-btn--large extlink ext external"> <i class="fa-brands fa-facebook fa-fw"><span class="element-invisible">facebook</span></i><span class="ext"><span class="element-invisible"> (link
+										is external)</span></span></a></li>
+						<li class="field-item service-linkedin list-horiz"><a href="https://www.linkedin.com/company/nist" target="_blank" rel="noopener noreferrer" class="social-btn social-btn--large extlink ext external"> <i class="fa-brands fa-linkedin fa-fw"><span class="element-invisible">linkedin</span></i><span class="ext"><span class="element-invisible"> (link
+										is external)</span></span></a></li>
+						<li class="field-item service-youtube list-horiz"><a href="https://www.youtube.com/user/USNISTGOV" target="_blank" rel="noopener noreferrer" class="social-btn social-btn--large extlink ext external"> <i class="fa-brands fa-youtube fa-fw"><span class="element-invisible">youtube</span></i><span class="ext"><span class="element-invisible"> (link
+										is external)</span></span></a></li>
+						<li class="field-item service-rss list-horiz"><a href="https://www.nist.gov/news-events/nist-rss-feeds" target="_blank" rel="noopener noreferrer" class="social-btn social-btn--large extlink">
+								<i class="fa fa-rss fa-fw"><span class="element-invisible">rss</span></i>
+						</a></li>
+						<li class="field-item service-govdelivery list-horiz last"><a href="https://public.govdelivery.com/accounts/USNIST/subscriber/new?qsp=USNIST_3" target="_blank" rel="noopener noreferrer" class="social-btn social-btn--large extlink ext">
+								<i class="fa fa-envelope fa-fw"><span class="element-invisible">govdelivery</span></i><span class="ext"><span class="element-invisible"> (link is external)</span></span>
+						</a></li>
+					</ul>
+					<span class="hidden-xs"> <a title="National Institute of Standards and Technology" rel="home" class="footer-nist-logo"> <img src="/site-media/images/nist/nist-logo.png" alt="National Institute of Standards and Technology logo">
+					</a>
+					</span>
+				</div>
+			</div>
+			<div class="row hidden-sm hidden-md hidden-lg">
+				<div class="col-sm-12">
+					<a href="https://www.nist.gov" title="National Institute of Standards and Technology" rel="home" target="_blank" class="footer-nist-logo"> <img src="/site-media/images/nist/nist-logo.png" alt="National Institute of Standards and Technology logo">
+					</a>
+				</div>
+			</div>
+
+			<div class="row footer-contact-container">
+				<div class="col-sm-6">
+					<strong>HEADQUARTERS</strong>
+					<br>
+					100 Bureau Drive
+					<br>
+					Gaithersburg, MD 20899
+					<br>
+					<a href="tel:301-975-2000" class="external">(301) 975-2000</a>
+					<br>
+					<br>
+					<a href="mailto:nvd@nist.gov">Webmaster</a> | <a href="https://www.nist.gov/about-nist/contact-us">Contact Us</a>
+					| <a href="https://www.nist.gov/about-nist/visit" style="display: inline-block;">Our Other Offices</a>
+				</div>
+				<div class="col-sm-6">
+					<div class="pull-right" style="text-align:right">
+						<strong>Incident Response Assistance and Non-NVD Related<br>Technical Cyber Security Questions:</strong>
+						<br>
+						US-CERT Security Operations Center
+						<br> Email: <a href="mailto:soc@us-cert.gov">soc@us-cert.gov</a>
+						<br> Phone:	1-888-282-0870
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+			    <nav title="Footer Navigation" role="navigation" class="row footer-bottom-links-container">
+			    <!-- https://github.com/usnistgov/nist-header-footer/blob/nist-pages/boilerplate-footer.html -->
+      				<p>
+			          <a href="https://www.nist.gov/oism/site-privacy">Site Privacy</a>
+			        |
+			          <a href="https://www.nist.gov/oism/accessibility">Accessibility</a>
+			        |
+			          <a href="https://www.nist.gov/privacy">Privacy Program</a>
+			        |
+			          <a href="https://www.nist.gov/oism/copyrights">Copyrights</a>
+			        |
+			          <a href="https://www.commerce.gov/vulnerability-disclosure-policy">Vulnerability Disclosure</a>
+			        |
+			          <a href="https://www.nist.gov/no-fear-act-policy">No Fear Act Policy</a>
+			        |
+			          <a href="https://www.nist.gov/foia">FOIA</a>
+			        |
+			          <a href="https://www.nist.gov/environmental-policy-statement">Environmental Policy</a>
+					|
+			          <a href="https://www.nist.gov/summary-report-scientific-integrity">Scientific Integrity</a>
+			        |
+			          <a href="https://www.nist.gov/nist-information-quality-standards">Information Quality Standards</a>
+			        |
+			          <a href="https://www.commerce.gov/">Commerce.gov</a>
+			        |
+			          <a href="https://www.science.gov/">Science.gov</a>
+			        |
+			          <a href="https://www.usa.gov/">USA.gov</a>
+            		</p>
+    			</nav>
+			</div>
+		</div>
+	</footer>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'996bb4d4db0581dc',t:'MTc2MTgzNTYzMA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;9ef5b487afff42a68917b2d63593a474&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+</body></html>
